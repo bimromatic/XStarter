@@ -1,0 +1,23 @@
+apply plugin: 'java-library'
+
+apply plugin: 'maven'
+apply from: "upload.gradle"
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
+
+
+dependencies {
+
+//    implementation project(":starter-annotation")
+
+    implementation 'com.wang.moduler:XStarter-annotation:1.0.0-alpha'
+
+    implementation 'com.squareup:javapoet:1.8.0'
+    implementation 'com.google.auto.service:auto-service:1.0-rc7'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc7'
+
+    implementation 'org.apache.commons:commons-lang3:3.5'
+    implementation 'org.apache.commons:commons-collections4:4.1'
+
+}

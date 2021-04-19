@@ -1,0 +1,9 @@
+include ':app',
+        ':starter-annotation',
+        ':starter-compiler',
+        ':starter-api',
+        ':starter-script',
+        ':module-java',
+        ':module-kotlin'
+
+rootProject.name='XStarter'
