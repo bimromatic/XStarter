@@ -1,9 +1,15 @@
 apply plugin: 'java-library'
-apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.wangkunhui'
 
 sourceCompatibility = "8"
 targetCompatibility = "8"
+
+
+ext {
+    artifact = 'XStarter-compiler'
+    libraryName = 'XStarter-compiler'
+    libraryDescription = 'Android Moduler Starter Compiler'
+    libraryVersion = '1.0.0-alpha'
+}
 
 
 dependencies {
@@ -41,4 +47,6 @@ task copySource(dependsOn: "cleanSource", group: "upload") {
     }
 }
 
+
+apply from: '../maven-publish.gradle'
 

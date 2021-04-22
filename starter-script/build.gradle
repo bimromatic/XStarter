@@ -2,8 +2,16 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.wangkunhui'
+//apply from: '../publish.gradle'
+
+
+ext {
+    artifact = 'XStarter'
+    libraryName = 'XStarter'
+    libraryDescription = 'Android Moduler Starter'
+    libraryVersion = '1.0.0-alpha'
+}
+
 
 android {
     compileSdkVersion 30
@@ -67,3 +75,4 @@ task copySource(dependsOn: "cleanSource", group: "upload") {
     }
 }
 
+apply from: '../maven-publish.gradle'
