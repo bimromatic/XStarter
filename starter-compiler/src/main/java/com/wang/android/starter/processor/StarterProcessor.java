@@ -176,9 +176,8 @@ public class StarterProcessor extends BaseProcessor {
                             }
                         }
 
-                        String methodSimpleName = subElement.toString().replace("()", "");
+                        String methodSimpleName = subElement.toString().split("\\(")[0];
                         String listenerName = listenMap.get(methodSimpleName);
-
                         String fileAbsName = generateExecutor(typeElement, simpleName, subElement.toString(), starterMethod, listenerName);
                         executorPaths.add(fileAbsName);
                     }

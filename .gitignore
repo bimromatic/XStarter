@@ -17,3 +17,7 @@
 **/*.iml
 **/.idea
 **/build
+
+localConfig.gradle
+
+**/*.jks

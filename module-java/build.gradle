@@ -38,7 +38,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
-    implementation 'com.wang.moduler:XStarter:1.0.1-alpha'
-
-    annotationProcessor 'com.wang.moduler:XStarter-conpiler:1.0.0-alpha'
+    implementation project(":starter-api")
+    annotationProcessor project(":starter-compiler")
+//    implementation "com.wang.moduler:XStarter:${starter_version}"
+//    annotationProcessor "com.wang.moduler:XStarter-compiler:${starter_version}"
 }
