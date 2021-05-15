@@ -28,8 +28,8 @@ android {
 }
 
 dependencies {
-  	implementation "com.wangkh.moduler:XStarter:$starter_version"
-		annotationProcessor "com.wangkh.moduler:XStarter-compiler:$starter_version"
+    implementation "com.wangkh.moduler:XStarter:$starter_version"
+    annotationProcessor "com.wangkh.moduler:XStarter-compiler:$starter_version"
 }
 ```
 
@@ -44,7 +44,7 @@ kapt {
 }
 
 dependencies {
-		implementation "com.wangkh.moduler:XStarter:$starter_version"
+    implementation "com.wangkh.moduler:XStarter:$starter_version"
     kapt "com.wangkh.moduler:XStarter-compiler:$starter_version"
 }
 ```
@@ -61,9 +61,9 @@ XStarter.emit(DemoApplication.instance) // 开启启动器
 ```kotlin
 @Starter(mainProcessOnly = false)
 class KotlinStarter : IStarter { // 类名可以任意命名
-		@StarterMethod(priority = 99, isSync = false, isDelay = true)
-  	public fun initTest(application:Application) { //方法名可以任意命名
-				//TODO 执行模块中需要初始化的逻辑
+    @StarterMethod(priority = 99, isSync = false, isDelay = true)
+    public fun initTest(application:Application) { //方法名可以任意命名
+	//TODO 执行模块中需要初始化的逻辑
     }
 
     @StarterFinish(listen = "initTest")
@@ -71,9 +71,9 @@ class KotlinStarter : IStarter { // 类名可以任意命名
         Log.e("KotlinStarter", "test初始化完成")
     }
   
-  	@StarterMethod(priority = 60, isSync = true, isDelay = true)
-  	public fun initTest2() { //方法名可以任意命名
-				//TODO 初始化另外一些东西，由于这个方法下初始化不需要用到Application，所以参数为空就行。
+    @StarterMethod(priority = 60, isSync = true, isDelay = true)
+    public fun initTest2() { //方法名可以任意命名
+	//TODO 初始化另外一些东西，由于这个方法下初始化不需要用到Application，所以参数为空就行。
     }
 }
 ```
