@@ -13,4 +13,7 @@ public class Constants {
     public static final String LAST_VERSION_NAME = "LAST_VERSION_NAME";
 
     public static final String LAST_VERSION_CODE = "LAST_VERSION_CODE";
+
+    public static final String MANAGER_PROCESS_ALL = "FOR_ALL";
+
 }

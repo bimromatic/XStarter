@@ -10,16 +10,18 @@ import java.lang.annotation.Target;
 public @interface StarterMethod {
 
     /**
-     * 初始化优先级 [0-99] 数值越大优先级越高
-     *
-     * @return
+     * @return 初始化优先级 [0-99] 数值越大优先级越高
      */
     int priority() default 99;
 
-    //是否需要同步初始化
+    /**
+     * @return 是否需要同步初始化
+     */
     boolean isSync() default true;
 
-    //是否可以延迟初始化
+    /**
+     * @return 是否可以延迟初始化
+     */
     boolean isDelay() default false;
 
 }

@@ -46,9 +46,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
-
-    implementation project(":starter-api")
-    kapt project(":starter-compiler")
-//    implementation "com.wang.moduler:XStarter:${starter_version}"
-//    kapt "com.wang.moduler:XStarter-compiler:${starter_version}"
+    if (isDev) {
+        implementation project(":starter-annotation")
+        implementation project(":starter-api")
+        kapt project(":starter-compiler")
+    } else {
+        implementation "com.wangkh.moduler:XStarter:$starter_version"
+        kapt "com.wangkh.moduler:XStarter-compiler:$starter_version"
+    }
 }

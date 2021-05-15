@@ -8,8 +8,15 @@ ext {
     artifact = 'XStarter-compiler'
     libraryName = 'XStarter-compiler'
     libraryDescription = 'Android Moduler Starter Compiler'
-    libraryVersion = '1.0.0-alpha'
+    libraryVersion = '1.0.0-alpha02'
 }
+
+//ext {
+//    PUBLISH_GROUP_ID = 'moduler'
+//    PUBLISH_ARTIFACT_ID = 'XStarter'
+//    PUBLISH_VERSION = '1.0.0-alpha'
+//    PUBLISH_DESC = 'Android Moduler Starter'
+//}
 
 
 dependencies {

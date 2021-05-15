@@ -6,8 +6,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.MessageQueue;
 
-import androidx.annotation.NonNull;
-import androidx.arch.core.util.Function;
 
 import com.wang.android.starter.AbstractStarter;
 import com.wang.android.starter.IManager;
@@ -101,7 +99,7 @@ class XStarterManager {
 
         private Handler mHandler = new Handler(Looper.myLooper()) {
             @Override
-            public void handleMessage(@NonNull Message msg) {
+            public void handleMessage(Message msg) {
                 super.handleMessage(msg);
             }
         };
@@ -213,11 +211,11 @@ class XStarterManager {
                         exception = e;
                     } finally {
                         final Exception finalException = exception;
-                        ThreadUtil.invokeToMainThread(mHandler, new Function<Void, Void>() {
+
+                        mHandler.post(new Runnable() {
                             @Override
-                            public Void apply(Void input) {
+                            public void run() {
                                 starter.onFinish(finalException);
-                                return null;
                             }
                         });
                     }

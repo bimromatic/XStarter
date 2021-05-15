@@ -42,7 +42,13 @@ dependencies {
 
 //    implementation "com.wang.moduler:XStarter:${starter_version}"
 
-    implementation project(":starter-api")
+    if (isDev) {
+        implementation project(":starter-annotation")
+        implementation project(":starter-api")
+    } else {
+        implementation "com.wangkh.moduler:XStarter:$starter_version"
+    }
+
     implementation project(":module-java")
     implementation project(":module-kotlin")
 }

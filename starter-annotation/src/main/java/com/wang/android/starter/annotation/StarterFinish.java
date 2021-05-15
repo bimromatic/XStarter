@@ -11,9 +11,7 @@ import java.lang.annotation.Target;
 public @interface StarterFinish {
 
     /**
-     * 要监听方法的方法名
-     *
-     * @return
+     * @return String 要监听方法的方法名
      */
     String listen();
     

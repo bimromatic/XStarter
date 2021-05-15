@@ -6,6 +6,7 @@ import com.wang.android.starter.annotation.Starter
 import com.wang.android.starter.annotation.StarterFinish
 import com.wang.android.starter.annotation.StarterMethod
 
+
 @Starter
 class KotlinStarter : IStarter {
 

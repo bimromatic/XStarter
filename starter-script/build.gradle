@@ -9,8 +9,18 @@ ext {
     artifact = 'XStarter'
     libraryName = 'XStarter'
     libraryDescription = 'Android Moduler Starter'
-    libraryVersion = '1.0.0-alpha'
+    libraryVersion = '1.0.0-alpha02'
 }
+
+
+//ext {
+//    PUBLISH_GROUP_ID = 'moduler'
+//    PUBLISH_ARTIFACT_ID = 'XStarter'
+//
+//    PUBLISH_VERSION = '1.0.0-alpha'
+//    PUBLISH_DESC = 'Android Moduler Starter'
+//
+//}
 
 
 android {

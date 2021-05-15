@@ -9,4 +9,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 public @interface Starter {
 
+    /**
+     * 是否只在主进程中初始化
+     *
+     * @return boolean
+     */
+    boolean mainProcessOnly() default true;
+
 }

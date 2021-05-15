@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.Log;
 
+import com.wang.android.config.Constants;
+import com.wang.android.launch.XStarter;
 import com.wang.android.thread.DefaultPoolExecutor;
 
 import java.io.File;
@@ -45,8 +47,9 @@ public class ClassUtil {
      * @param context     U know
      * @param packageName 包名
      * @return 所有class的集合
+     * @throws Exception 抛出异常
      */
-    public static Set<String> getFileNameByPackageName(Context context, final String packageName) throws PackageManager.NameNotFoundException, IOException, InterruptedException {
+    public static Set<String> getFileNameByPackageName(Context context, final String packageName) throws Exception {
         final Set<String> classNames = new HashSet<>();
 
         List<String> paths = getSourcePaths(context);
@@ -57,6 +60,9 @@ public class ClassUtil {
                 @Override
                 public void run() {
                     DexFile dexfile = null;
+
+                    boolean mainProcess = ProcessUtil.isMainProcess(XStarter.mApplication);
+
 
                     try {
                         if (path.endsWith(EXTRACTED_SUFFIX)) {
@@ -70,7 +76,13 @@ public class ClassUtil {
                         while (dexEntries.hasMoreElements()) {
                             String className = dexEntries.nextElement();
                             if (className.startsWith(packageName)) {
-                                classNames.add(className);
+                                if (mainProcess) {
+                                    classNames.add(className);
+                                } else {
+                                    if (className.endsWith(Constants.MANAGER_PROCESS_ALL)) {
+                                        classNames.add(className);
+                                    }
+                                }
                             }
                         }
                     } catch (Throwable ignore) {
@@ -97,10 +109,9 @@ public class ClassUtil {
      *
      * @param context the application context
      * @return all the dex path
-     * @throws PackageManager.NameNotFoundException
-     * @throws IOException
+     * @throws IOException 抛出异常
      */
-    public static List<String> getSourcePaths(Context context) throws PackageManager.NameNotFoundException, IOException {
+    public static List<String> getSourcePaths(Context context) throws Exception {
         ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
         File sourceApk = new File(applicationInfo.sourceDir);
 

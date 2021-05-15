@@ -16,6 +16,9 @@ public class Constants {
     public static final String PACKAGE_OF_GENERATE_EXECUTOR = STARTER_SUPER_CLASS_PATH + ".executor";
     public static final String PACKAGE_OF_GENERATE_MANAGER = STARTER_SUPER_CLASS_PATH + ".manager";
 
+    public static final String MANAGER_FOR_MAIN_PROCESS = "FOR_MAIN";
+    public static final String MANAGER_FOR_ALL_PROCESS = "FOR_ALL";
+
 
     public static final String STARTER_SUPER_CLASS_EXECUTOR = STARTER_SUPER_CLASS_PATH + ".IStarterExecutor";
     public static final String STARTER_SUPER_CLASS_WARP = STARTER_SUPER_CLASS_PATH + ".AbstractStarter";

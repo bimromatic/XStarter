@@ -95,7 +95,6 @@ public class StarterProcessor extends BaseProcessor {
             }
 
             List<String> executorPaths = new ArrayList<>();
-
             List<? extends Element> enclosedElements = element.getEnclosedElements();
 
 
@@ -186,14 +185,20 @@ public class StarterProcessor extends BaseProcessor {
             }
 
             if (!executorPaths.isEmpty()) {
-                generateManager(typeElement, simpleName, executorPaths);
+                Starter starterAnnotation = element.getAnnotation(Starter.class);
+                boolean mainProcessOnly = starterAnnotation.mainProcessOnly();
+                generateManager(typeElement, simpleName, executorPaths, mainProcessOnly);
             }
         }
     }
 
-    private void generateManager(TypeElement typeElement, String simpleName, List<String> executorPaths) throws IOException {
+    private void generateManager(TypeElement typeElement, String simpleName, List<String> executorPaths, boolean mainProcessOnly) throws IOException {
         String fileName = Constants.NAME_OF_MANAGER + simpleName.toUpperCase() + Constants.SEPARATOR + moduleName.toUpperCase();
-
+        if (mainProcessOnly) {
+            fileName += Constants.SEPARATOR + Constants.MANAGER_FOR_MAIN_PROCESS;
+        } else {
+            fileName += Constants.SEPARATOR + Constants.MANAGER_FOR_ALL_PROCESS;
+        }
         String collectionFieldName = "mExecutors";
         String iStarterFieldName = "m" + simpleName;
 

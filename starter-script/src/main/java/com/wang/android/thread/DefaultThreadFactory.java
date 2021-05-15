@@ -1,7 +1,5 @@
 package com.wang.android.thread;
 
-import androidx.annotation.NonNull;
-
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -20,7 +18,7 @@ public class DefaultThreadFactory implements ThreadFactory {
         namePrefix = "XStarter task pool No." + poolNumber.getAndIncrement() + ", thread No.";
     }
 
-    public Thread newThread(@NonNull Runnable runnable) {
+    public Thread newThread(Runnable runnable) {
         String threadName = namePrefix + threadNumber.getAndIncrement();
 
         Thread thread = new Thread(group, runnable, threadName, 0);

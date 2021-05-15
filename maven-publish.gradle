@@ -9,6 +9,8 @@ if (project.hasProperty("android")) { // Android libraries
         excludes = ['**/*.kt'] // < ---- Exclude all kotlin files from javadoc file.
         source = android.sourceSets.main.java.srcDirs
         classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+        options.encoding = "utf-8"
+        options.charSet = "utf-8"
     }
 } else { // Java libraries
     task sourcesJar(type: Jar, dependsOn: classes) {
@@ -22,6 +24,10 @@ tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
 
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
+
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
@@ -29,7 +35,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 
 // add javadoc/source jar tasks as artifacts
 artifacts {
-//    archives javadocJar
+    archives javadocJar
     archives sourcesJar
 }
 

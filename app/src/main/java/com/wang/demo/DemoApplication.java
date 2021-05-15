@@ -2,8 +2,6 @@ package com.wang.demo;
 
 import android.app.Application;
 
-import com.wang.android.launch.XStarter;
-
 
 public class DemoApplication extends Application {
 
