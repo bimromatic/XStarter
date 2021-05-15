@@ -8,10 +8,11 @@ import com.wang.android.starter.annotation.Starter;
 import com.wang.android.starter.annotation.StarterFinish;
 import com.wang.android.starter.annotation.StarterMethod;
 
-@Starter
+@Starter(mainProcessOnly = true)
 public class JavaStarter implements IStarter {
 
     private final String TAG = "JavaStarter";
+
 
 
     @StarterMethod(priority = 99, isSync = false, isDelay = true)
